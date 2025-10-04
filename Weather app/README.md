@@ -4,12 +4,12 @@ This is a simple and elegant weather application built with Angular. It provides
 
 ## Website Description
 
-The application features a clean and modern user interface. The main view displays the current weather conditions for the user's selected location, including temperature, humidity, wind speed, and more. It also presents a 5-day forecast and an hourly forecast for the next 24 hours. A powerful search functionality allows users to easily find weather information for different cities.
+The application features a clean and modern user interface. The main view displays the current weather conditions for the user's selected location, including temperature, humidity, wind speed, and more. It also presents a 7-day forecast and an hourly forecast for the next 24 hours. A powerful search functionality allows users to easily find weather information for different cities.
 
 ## Features
 
 -   **Current Weather:** Get up-to-the-minute weather data.
--   **5-Day Forecast:** Plan ahead with a 5-day weather forecast.
+-   **7-Day Forecast:** Plan ahead with a 5-day weather forecast.
 -   **24-Hour Forecast:** See an hour-by-hour forecast for the next 24 hours.
 -   **Search:** Find weather information for any city in the world.
 -   **Unit Conversion:** Switch between Metric and Imperial units.
@@ -23,7 +23,6 @@ This project is built with modern web technologies and leverages the following A
 -   **Components:** The UI is built using a modular, component-based architecture. This includes components for search, current weather, hourly forecast, and daily forecast.
 -   **Services:** Services are used to manage application-wide concerns such as fetching weather data from an API and handling unit conversions.
 -   **Models:** TypeScript interfaces are used to define data structures for `Location` and `Weather` data.
--   **Routing:** Although a single-page application, Angular's router could be used to expand the application with more views.
 
 ## Development server
 
