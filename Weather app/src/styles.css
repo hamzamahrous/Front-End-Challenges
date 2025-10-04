@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(243, 96%, 9%);
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .settings-btn {
+    @apply p-2 my-0.5 w-full text-left hover:bg-custom-neutral-700 rounded-md;
+  }
+
+  .settings-btn.active {
+    @apply bg-custom-neutral-700;
+  }
+}

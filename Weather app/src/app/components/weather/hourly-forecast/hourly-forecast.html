@@ -1,0 +1,28 @@
+<div class="py-2 px-3 font-Sans bg-custom-neutral-800 rounded-lg h-full flex flex-col gap-1.5">
+  <div class="flex justify-between items-center my-1">
+    <span class="">Hourly forecast</span>
+    <div class="relative">
+      <button
+        class="bg-custom-neutral-600 px-3 py-2 rounded-lg flex gap-2"
+        (click)="toggleDaysShow()"
+      >
+        {{ weatherService.isWeatherDataLoading() ? '-' : selectedDayName() }}
+        <img src="icon-dropdown.svg" alt="Drop Down" />
+      </button>
+
+      @if (showDays()) {
+      <div
+        class="p-2 bg-custom-neutral-800 z-30 absolute top-12 right-0 w-52 border border-custom-neutral-600 rounded-lg"
+      >
+        @for (day of next_7_days; track $index) {
+        <button class="settings-btn" (click)="onDaySelect($index)">{{ day }}</button>
+        }
+      </div>
+      }
+    </div>
+  </div>
+
+  @for (hourIndex of [0,1,2,3,4,5,6]; track hourIndex) {
+  <app-hourly-unit [hourIndex]="hourIndex"></app-hourly-unit>
+  }
+</div>

@@ -1,0 +1,45 @@
+<div class="w-full space-y-6 font-Sans">
+  <div class="relative h-40 w-full bg-custom-neutral-800 rounded-lg">
+    @if(weatherService.isWeatherDataLoading()){
+    <div class="absolute inset-0 flex flex-col justify-center items-center gap-2">
+      <img src="icon-loading.svg" alt="Loading Icon" />
+      <span>Loading...</span>
+    </div>
+    } @else {
+    <span
+      class="absolute inset-0 rounded-xl bg-gradient-to-r from-custom-blue-700 opacity-80"
+    ></span>
+    <img
+      src="bg-today-large.svg"
+      alt="Today weather Image"
+      class="h-full w-full object-cover rounded-xl"
+    />
+
+    <div class="flex justify-between items-center absolute inset-0 px-8">
+      <div class="">
+        <h3 class="font-semibold text-2xl">
+          {{`${weatherService.selectedCity().name}, ${weatherService.selectedCity().country}`}}
+        </h3>
+        <h3 class="text-sm text-custom-neutral-300">{{ weatherTemplateData().dayName }}</h3>
+      </div>
+
+      <div>
+        <span class="text-5xl font-semibold italic">
+          {{ weatherTemplateData().currentWeatherTemp }}&deg;
+        </span>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    @for (weatherUnit of weatherTemplateData().weatherDataUnits; track weatherUnit.label) {
+    <app-weather-data-unit
+      [label]="weatherUnit.label"
+      [value]="weatherUnit.value"
+    ></app-weather-data-unit>
+    }
+  </div>
+
+  <app-daily-forecast></app-daily-forecast>
+</div>

@@ -1,0 +1,14 @@
+<div
+  class="font-Sans border border-custom-neutral-600 w-full p-3 rounded-lg h-[45px] bg-custom-neutral-700"
+>
+  @if (!weatherService.isWeatherDataLoading() && hourData()) {
+  <div class="flex items-center justify-between">
+    <div class="flex gap-2 justify-center items-center">
+      <img [src]="hourData()?.weatherIcon" alt="Icon" class="w-6" />
+      <span class="text-custom-neutral-200">{{ hourData()?.hourDisplay }}</span>
+    </div>
+
+    <span class="text-sm text-custom-neutral-200">{{ hourData()?.temperature }}&deg;</span>
+  </div>
+  }
+</div>

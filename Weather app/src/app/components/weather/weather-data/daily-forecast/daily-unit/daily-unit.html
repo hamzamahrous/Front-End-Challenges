@@ -1,0 +1,12 @@
+<div
+  class="bg-custom-neutral-800 px-3 py-2 rounded-lg flex flex-col justify-between items-center w-22 h-24"
+>
+  @if (!weatherService.isWeatherDataLoading() && dayData()) {
+  <span>{{ dayData()?.dayName }}</span>
+  <img [src]="dayData()?.weatherCodeImagePath" alt="Weather icon" class="w-10" />
+  <div class="w-full text-sm flex justify-between">
+    <span>{{ dayData()?.maxTemp?.toFixed(0) }}&deg;</span>
+    <span class="">{{ dayData()?.minTemp?.toFixed(0) }}&deg;</span>
+  </div>
+  }
+</div>

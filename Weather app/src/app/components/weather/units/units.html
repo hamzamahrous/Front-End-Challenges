@@ -1,0 +1,70 @@
+<div class="relative text-custom-neutral-0 font-Sans">
+  <button
+    class="px-3 py-2 sm:px-5 sm:py-3 rounded-lg flex gap-2 bg-custom-neutral-800"
+    (click)="toggleSettingsDisplay()"
+  >
+    <img src="icon-units.svg" alt="Units Icon" class="w-4" />
+    <span class="text-[18px]">Units</span>
+    <img src="icon-dropdown.svg" alt="" class="w-4" />
+  </button>
+
+  @if (showMenu()) {
+  <div
+    class="absolute z-50 right-0 top-14 p-2 rounded-lg bg-custom-neutral-800 w-52 border border-custom-neutral-600"
+  >
+    <button class="settings-btn" (click)="unitsService.switchToImperial()">
+      Switch to Imperial
+    </button>
+    <span class="p-2 block w-full text-sm text-custom-neutral-300">Temperature</span>
+    @for (temperatureOption of temperatureOptions; track temperatureOption.value) {
+    <button
+      class="settings-btn flex justify-between items-center"
+      (click)="editTempUnit(temperatureOption.value)"
+      [class.active]="temperatureOption.value === unitsService.temperatureUnit()"
+    >
+      {{ temperatureOption.label }}
+      @if(temperatureOption.value === unitsService.temperatureUnit()){
+      <img src="icon-checkmark.svg" alt="Checkmark Icon" />
+      }
+    </button>
+    }
+
+    <span
+      class="p-2 block w-full text-sm text-custom-neutral-300 border-t border-custom-neutral-600"
+    >
+      Wind Speed
+    </span>
+    @for (windOption of windOptions; track windOption.value) {
+    <button
+      class="settings-btn flex justify-between"
+      (click)="editSpeedWindUnit(windOption.value)"
+      [class.active]="windOption.value === unitsService.windSpeedUnit()"
+    >
+      {{ windOption.label }}
+
+      @if(windOption.value === unitsService.windSpeedUnit()){
+      <img src="icon-checkmark.svg" alt="Checkmark Icon" />
+      }
+    </button>
+    }
+
+    <span
+      class="p-2 block w-full text-sm text-custom-neutral-300 border-t border-custom-neutral-600"
+    >
+      Precipitation
+    </span>
+    @for (precipitationOption of precipitationOptions; track precipitationOption.value) {
+    <button
+      class="settings-btn flex justify-between"
+      (click)="editPrecipitationUnit(precipitationOption.value)"
+      [class.active]="precipitationOption.value === unitsService.precipitationUnit()"
+    >
+      {{ precipitationOption.label }}
+      @if(precipitationOption.value === unitsService.precipitationUnit()){
+      <img src="icon-checkmark.svg" alt="Checkmark Icon" />
+      }
+    </button>
+    }
+  </div>
+  }
+</div>
